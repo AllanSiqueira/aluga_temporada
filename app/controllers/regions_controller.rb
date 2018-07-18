@@ -1,7 +1,15 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show]
 
-  def show; end
+  def index
+    @regions = Region.all
+  end
+
+  def show
+    if @region.properties.blank?
+      flash[:notice] = 'Não há imoveis para Copacabana'
+    end
+  end
 
   def new
     @region = Region.new

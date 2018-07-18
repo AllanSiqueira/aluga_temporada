@@ -1,1 +1,6 @@
 <h1><%= @region.name %></h1>
+<ul>
+  <% @region.properties.each do |property| %>
+    <li><%= property.title %></li>
+  <% end %>
+</ul>
